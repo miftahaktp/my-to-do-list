@@ -191,3 +191,38 @@ input[type="checkbox"] {
 .edit-icon:active, .delete-icon:active {
     transform: scale(0.95);
 }
+/* Şık Uyarı Kutusu Stili */
+.custom-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fce4e4;
+    color: #e56b6f;
+    border: 1px solid #f8c8c8;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    animation: fadeInDown 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.custom-alert.hide {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+}
+
+/* Yukarıdan Aşağı Süzülme Animasyonu */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
