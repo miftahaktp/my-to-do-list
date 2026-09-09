@@ -83,3 +83,22 @@ li {
 .btn-group {
     display: flex;
 }
+/* Dikkat çekici Tümünü Sil butonu stili */
+#clearAllBtn {
+    background-color: #dc3545;
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid #ff4d4d;
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#clearAllBtn:hover {
+    background-color: #bd2130;
+    border-color: #ff1a1a;
+    box-shadow: 0 0 12px rgba(255, 77, 77, 0.8);
+}
