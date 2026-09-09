@@ -9,7 +9,31 @@ function elemanEkle() {
         gorevArayuzEkle(metin, false);
         input.value = "";
         hafizayiGuncelle();
+    } else {
+        // Boş input uyarısı
+        uyariGoster("Lütfen geçerli bir görev metni girin!");
     }
+}
+
+// Şık Uyarı Mesajı Oluşturan Fonksiyon
+function uyariGoster(mesaj) {
+    // Varsa eski uyarıyı kaldır
+    var eskiUyari = document.querySelector(".custom-alert");
+    if (eskiUyari) eskiUyari.remove();
+
+    var alertBox = document.createElement("div");
+    alertBox.className = "custom-alert";
+    alertBox.textContent = mesaj;
+
+    document.body.appendChild(alertBox);
+
+    // 2.5 saniye sonra ekrandan yumuşakça kaldır
+    setTimeout(function() {
+        alertBox.classList.add("hide");
+        setTimeout(function() {
+            alertBox.remove();
+        }, 300);
+    }, 2500);
 }
 
 // Arayüze tek bir görev elemanı ekleyen yardımcı fonksiyon
@@ -49,7 +73,6 @@ function gorevArayuzEkle(metin, tamamlandiMi) {
     var btnGroup = document.createElement("div");
     btnGroup.className = "btn-group";
 
-    // Düzenle Butonu
     // Düzenle İkonu (Buton İşlevi Gören Kalem İkonu)
     var editBtn = document.createElement("span");
     editBtn.className = "edit-icon";
@@ -118,7 +141,6 @@ function gorevArayuzEkle(metin, tamamlandiMi) {
     ul.appendChild(li);
 } // gorevArayuzEkle fonksiyonunun kapanışı
 
-// Tümünü Sil Fonksiyonu
 // Tümünü Sil Fonksiyonu (Ekrani ve LocalStorage'i Ayni Anda Temizler)
 function tumunuSil() {
     var ul = document.getElementById("todoList");
