@@ -226,3 +226,11 @@ input[type="checkbox"] {
         transform: translate(-50%, 0);
     }
 }
+/* Sayaç Metni Stili */
+.counter-text {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #9a8c98;
+    text-align: center;
+}
