@@ -9,6 +9,7 @@ function elemanEkle() {
         gorevArayuzEkle(metin, false);
         input.value = "";
         hafizayiGuncelle();
+        sayaciGuncelle();
     } else {
         // Boş input uyarısı
         uyariGoster("Lütfen geçerli bir görev metni girin!");
