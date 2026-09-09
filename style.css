@@ -54,12 +54,30 @@ ul {
     text-align: left;
 }
 
+/* Liste elemanını yan yana dizecek esnek yapı */
 li {
+    display: flex;
+    justify-content: space-between; /* Sol ve sağ içeriği iki uca iter */
+    align-items: center;            /* Dikeyde tam ortalar */
     padding: 10px;
     background-color: #1e1e1e;
     border-bottom: 1px solid #333;
     margin-bottom: 5px;
     border-radius: 4px;
+}
+
+/* Sol kısım (Checkbox ve Metin) esnek yapısı */
+.left-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Sağ kısım (Kalem ikonu ve Sil butonu) yan yana hizalama */
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* İkon ile Sil butonu arasındaki boşluk */
 }
 /* Tamamlanan görev için üstü çizili stil */
 .completed {
@@ -68,20 +86,26 @@ li {
 }
 
 /* Düzenle butonu stili */
-.edit-btn {
-    background-color: #ff9800; /* Turuncu */
-    padding: 5px 10px;
-    font-size: 12px;
-    margin-right: 5px;
+/* Buton işlevi gören kalem ikonu */
+.edit-icon {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    user-select: none;
+    transition: transform 0.15s ease, filter 0.15s ease;
 }
 
-.edit-btn:hover {
-    background-color: #e68a00;
+/* Üzerine gelindiğinde hafif parlama ve büyüme efekti */
+.edit-icon:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 4px rgba(255, 152, 0, 0.6));
 }
 
-/* Buton grubu için hizalama */
-.btn-group {
-    display: flex;
+/* Tıklandığı anda içe basılma hissi */
+.edit-icon:active {
+    transform: scale(0.95);
 }
 /* Dikkat çekici Tümünü Sil butonu stili */
 #clearAllBtn {
