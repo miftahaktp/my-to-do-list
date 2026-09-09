@@ -61,3 +61,25 @@ li {
     margin-bottom: 5px;
     border-radius: 4px;
 }
+/* Tamamlanan görev için üstü çizili stil */
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Düzenle butonu stili */
+.edit-btn {
+    background-color: #ff9800; /* Turuncu */
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background-color: #e68a00;
+}
+
+/* Buton grubu için hizalama */
+.btn-group {
+    display: flex;
+}
