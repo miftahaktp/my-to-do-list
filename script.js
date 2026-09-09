@@ -81,14 +81,34 @@ function gorevArayuzEkle(metin, tamamlandiMi) {
     };
 
     // Sil Butonu
-    var deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Sil";
-    deleteBtn.className = "delete-btn";
+   // Sil İkonu (Buton İşlevi Gören Mavi Silgi İkonu)
+    var deleteBtn = document.createElement("span");
+    deleteBtn.className = "delete-icon";
+    deleteBtn.title = "Sil";
+    deleteBtn.role = "button";
+    // Sil İkonu (Mavi Renkli Silgi Görünümü)
+    var deleteBtn = document.createElement("span");
+    deleteBtn.className = "delete-icon";
+    deleteBtn.title = "Sil";
+    deleteBtn.role = "button";
+    deleteBtn.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Mavi Silgi Gövdesi -->
+            <rect x="5" y="7" width="14" height="10" rx="2" fill="#0088CC"/>
+            <!-- Karton / Kuşak Kısım (Açık Mavi) -->
+            <rect x="5" y="7" width="6" height="10" rx="1" fill="#4DB6AC"/>
+            <!-- Detay Çizgisi -->
+            <line x1="11" y1="7" x2="11" y2="17" stroke="#005580" stroke-width="1"/>
+            <!-- Silgi Köşe Parlaması -->
+            <path d="M6 8H18" stroke="#E0F7FA" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+    `;
     deleteBtn.onclick = function() {
         li.remove();
         hafizayiGuncelle();
     };
 
+    // İkonları gruba, grubu ve sol içeriği de liste elemanına (li) ekle
     btnGroup.appendChild(editBtn);
     btnGroup.appendChild(deleteBtn);
 
@@ -96,7 +116,7 @@ function gorevArayuzEkle(metin, tamamlandiMi) {
     li.appendChild(btnGroup);
 
     ul.appendChild(li);
-}
+} // gorevArayuzEkle fonksiyonunun kapanışı
 
 // Tümünü Sil Fonksiyonu
 function tumunuSil() {

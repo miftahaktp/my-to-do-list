@@ -126,3 +126,23 @@ li {
     border-color: #ff1a1a;
     box-shadow: 0 0 12px rgba(255, 77, 77, 0.8);
 }
+/* Buton işlevi gören mavi silgi ikonu */
+.delete-icon {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+/* Üzerine gelindiğinde mavi parlama ve büyüme efekti */
+.delete-icon:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 4px rgba(0, 136, 204, 0.8));
+}
+
+/* Tıklandığı anda içe basılma hissi */
+.delete-icon:active {
+    transform: scale(0.95);
+}
