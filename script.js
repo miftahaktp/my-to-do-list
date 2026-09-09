@@ -130,6 +130,7 @@ function gorevArayuzEkle(metin, tamamlandiMi) {
     deleteBtn.onclick = function() {
         li.remove();
         hafizayiGuncelle();
+        sayaciGuncelle();
     };
 
     // İkonları gruba, grubu ve sol içeriği de liste elemanına (li) ekle
