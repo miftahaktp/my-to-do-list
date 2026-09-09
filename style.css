@@ -1,7 +1,7 @@
 /* Soft Pastel Arka Plan ve Genel Font */
 body {
-    background-color: #f7f4f0; /* Yumuşak Krem/Sütlü Kahve */
-    color: #4a4e69;            /* Koyu Pastel Gri/Mor Yazı */
+    background-color: #f7f4f0;
+    color: #4a4e69;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     display: flex;
     justify-content: center;
@@ -15,7 +15,8 @@ body {
     padding: 24px;
     background-color: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(175, 163, 152, 0.15); /* Yumuşak Arka Plan Gölgesi */
+    box-shadow: 0 10px 25px rgba(175, 163, 152, 0.15);
+    box-sizing: border-box;
 }
 
 /* Başlık */
@@ -28,7 +29,7 @@ h1 {
     letter-spacing: -0.3px;
 }
 
-/* Tümünü Sil Butonu (Pastel Gül / Soft Kırmızı) */
+/* Tümünü Sil Butonu */
 #clearAllBtn {
     background-color: #fce4e4;
     color: #e56b6f;
@@ -48,15 +49,21 @@ h1 {
     color: #d90429;
 }
 
-/* Input ve Ekle Butonu Alanı */
+/* Input Düzeni */
 .input-container {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
 }
 
+.options-row {
+    display: flex;
+    gap: 10px;
+}
+
 input[type="text"] {
-    flex: 1;
+    width: 100%;
     padding: 12px 16px;
     border: 2px solid #f0ece9;
     border-radius: 12px;
@@ -64,6 +71,7 @@ input[type="text"] {
     color: #4a4e69;
     font-size: 14px;
     outline: none;
+    box-sizing: border-box;
     transition: border-color 0.2s ease;
 }
 
@@ -75,8 +83,20 @@ input[type="text"]::placeholder {
     color: #9a8c98;
 }
 
-/* Ekle Butonu (Pastel Lila / Soft Purple) */
+input[type="date"], select {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #f0ece9;
+    border-radius: 12px;
+    background-color: #faf8f5;
+    color: #4a4e69;
+    font-size: 13px;
+    outline: none;
+    box-sizing: border-box;
+}
+
 .input-container button {
+    width: 100%;
     padding: 12px 18px;
     border: none;
     border-radius: 12px;
@@ -96,6 +116,31 @@ input[type="text"]::placeholder {
     transform: scale(0.96);
 }
 
+/* Filtreleme Butonları */
+.filter-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.filter-btn {
+    background-color: #f0ece9;
+    color: #4a4e69;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #9a8c98;
+    color: #ffffff;
+}
+
 /* Liste Alanı */
 ul {
     list-style: none;
@@ -103,13 +148,12 @@ ul {
     margin: 0;
 }
 
-/* Liste Maddesi Kartı (Pastel Nane/Yeşil Dokunuş) */
 li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 16px;
-    background-color: #4d3b5a61; 
+    background-color: #f2f7f5; 
     border: 1px solid #e1ebe6;
     border-radius: 12px;
     margin-bottom: 10px;
@@ -121,14 +165,13 @@ li:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
-/* Sol Kısım (Checkbox ve Metin) */
 .left-content {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-/* Soft Onay Kutusu */
 input[type="checkbox"] {
     accent-color: #9a8c98;
     width: 18px;
@@ -140,26 +183,45 @@ input[type="checkbox"] {
     font-size: 14px;
     font-weight: 500;
     color: #4a4e69;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-/* Tamamlanan Görev Stili */
 .completed {
     text-decoration: line-through;
     color: #b5e2fa !important;
     opacity: 0.6;
 }
 
-/* Sağ Kısım (İkon Grubu) */
+/* Kategori Rozeti ve Tarih Stilleri */
+.badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.badge-genel { background-color: #e2e8f0; color: #475569; }
+.badge-ders { background-color: #dbeafe; color: #1e40af; }
+.badge-iş { background-color: #fef3c7; color: #92400e; }
+.badge-kişisel { background-color: #fce7f3; color: #9d174d; }
+
+.task-date {
+    font-size: 11px;
+    color: #9a8c98;
+}
+
+.task-date.expired {
+    color: #e56b6f;
+    font-weight: bold;
+}
+
+/* Sağ İkon Grubu ve Orijinal Hover Glow Efektleri */
 .btn-group {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-/* İkon Etkileşimleri */
-/* Kalem (Düzenle) İkonu - Turuncu Parlama */
-.edit-icon {
+.edit-icon, .delete-icon {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -170,28 +232,19 @@ input[type="checkbox"] {
 
 .edit-icon:hover {
     transform: scale(1.25);
-    filter: drop-shadow(0 0 8px #ff9800); /* Net Turuncu Glow */
-}
-
-/* Silgi (Sil) İkonu - Mavi Parlama */
-.delete-icon {
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: drop-shadow(0 0 8px #ff9800);
 }
 
 .delete-icon:hover {
     transform: scale(1.25);
-    filter: drop-shadow(0 0 8px #0088cc); /* Net Mavi Glow */
+    filter: drop-shadow(0 0 8px #0088cc);
 }
 
 .edit-icon:active, .delete-icon:active {
     transform: scale(0.95);
 }
-/* Şık Uyarı Kutusu Stili */
+
+/* Şık Uyarı Kutusu */
 .custom-alert {
     position: fixed;
     top: 20px;
@@ -215,18 +268,11 @@ input[type="checkbox"] {
     transform: translate(-50%, -10px);
 }
 
-/* Yukarıdan Aşağı Süzülme Animasyonu */
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -20px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
+    from { opacity: 0; transform: translate(-50%, -20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
 }
-/* Sayaç Metni Stili */
+
 .counter-text {
     margin-top: 16px;
     font-size: 13px;
