@@ -119,10 +119,12 @@ function gorevArayuzEkle(metin, tamamlandiMi) {
 } // gorevArayuzEkle fonksiyonunun kapanışı
 
 // Tümünü Sil Fonksiyonu
+// Tümünü Sil Fonksiyonu (Ekrani ve LocalStorage'i Ayni Anda Temizler)
 function tumunuSil() {
     var ul = document.getElementById("todoList");
     ul.innerHTML = "";
-    localStorage.removeItem("gorevler"); // Hafızayı temizle
+    localStorage.removeItem("gorevler"); // Hafızadaki veriyi siler
+    hafizayiGuncelle(); // Hafızanın boş halini doğrular
 }
 
 // Ekrandaki mevcut listeyi okuyup localStorage'a kaydeder
