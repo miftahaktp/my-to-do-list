@@ -145,10 +145,10 @@ function gorevArayuzEkle(metin, tamamlandiMi) {
 function tumunuSil() {
     var ul = document.getElementById("todoList");
     ul.innerHTML = "";
-    localStorage.removeItem("gorevler"); // Hafızadaki veriyi siler
-    hafizayiGuncelle(); // Hafızanın boş halini doğrular
+    localStorage.removeItem("gorevler");
+    hafizayiGuncelle();
+    sayaciGuncelle(); // Tüm silme işleminden sonra sayacı sıfırlar
 }
-
 // Ekrandaki mevcut listeyi okuyup localStorage'a kaydeder
 function hafizayiGuncelle() {
     var gorevler = [];
@@ -163,6 +163,25 @@ function hafizayiGuncelle() {
             tamamlandi: tamamlandiMi
         });
     });
+    function hafizayiGuncelle() {
+    var gorevler = [];
+    var liElemanlari = document.querySelectorAll("#todoList li");
+
+    liElemanlari.forEach(function(li) {
+        var metin = li.querySelector("span").textContent;
+        var tamamlandiMi = li.querySelector("input[type='checkbox']").checked;
+        
+        gorevler.push({
+            metin: metin,
+            tamamlandi: tamamlandiMi
+        });
+    });
+
+    localStorage.setItem("gorevler", JSON.stringify(gorevler));
+    
+    // Sayacı her veri değişiminde çalıştır
+    sayaciGuncelle(); 
+}
 
     localStorage.setItem("gorevler", JSON.stringify(gorevler));
 }
@@ -175,5 +194,21 @@ function gorevleriYukle() {
         gorevler.forEach(function(gorev) {
             gorevArayuzEkle(gorev.metin, gorev.tamamlandi);
         });
+    }
+    sayaciGuncelle(); // Sayfa yüklendiğinde sayacı çalıştırır
+}
+// Enter tuşuna basıldığında ekleme işlemini tetikle
+document.getElementById("todoInput").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        elemanEkle();
+    }
+});
+
+// Görev Sayısını Güncelleyen Yardımcı Fonksiyon
+function sayaciGuncelle() {
+    var toplam = document.querySelectorAll("#todoList li").length;
+    var counterElement = document.getElementById("counter");
+    if (counterElement) {
+        counterElement.textContent = "Toplam Görev: " + toplam;
     }
 }
