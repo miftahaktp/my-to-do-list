@@ -1,0 +1,282 @@
+/* Soft Pastel Arka Plan ve Genel Font */
+body {
+    background-color: #f7f4f0;
+    color: #4a4e69;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 700px;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(175, 163, 152, 0.15);
+    box-sizing: border-box;
+}
+
+/* Başlık */
+h1 {
+    color: #4a4e69;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+}
+
+/* Tümünü Sil Butonu */
+#clearAllBtn {
+    background-color: #fce4e4;
+    color: #e56b6f;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#clearAllBtn:hover {
+    background-color: #f8c8c8;
+    color: #d90429;
+}
+
+/* Input Düzeni */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.options-row {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #f0ece9;
+    border-radius: 12px;
+    background-color: #faf8f5;
+    color: #4a4e69;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #c9ada7;
+}
+
+input[type="text"]::placeholder {
+    color: #9a8c98;
+}
+
+input[type="date"], select {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #f0ece9;
+    border-radius: 12px;
+    background-color: #faf8f5;
+    color: #4a4e69;
+    font-size: 13px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-container button {
+    width: 100%;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+    background-color: #9a8c98;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.input-container button:hover {
+    background-color: #827191;
+}
+
+.input-container button:active {
+    transform: scale(0.96);
+}
+
+/* Filtreleme Butonları */
+.filter-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.filter-btn {
+    background-color: #f0ece9;
+    color: #4a4e69;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #9a8c98;
+    color: #ffffff;
+}
+
+/* Liste Alanı */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #f2f7f5; 
+    border: 1px solid #e1ebe6;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+input[type="checkbox"] {
+    accent-color: #9a8c98;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.left-content span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a4e69;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #b5e2fa !important;
+    opacity: 0.6;
+}
+
+/* Kategori Rozeti ve Tarih Stilleri */
+.badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.badge-genel { background-color: #e2e8f0; color: #475569; }
+.badge-ders { background-color: #dbeafe; color: #1e40af; }
+.badge-iş { background-color: #fef3c7; color: #92400e; }
+.badge-kişisel { background-color: #fce7f3; color: #9d174d; }
+
+.task-date {
+    font-size: 11px;
+    color: #9a8c98;
+}
+
+.task-date.expired {
+    color: #e56b6f;
+    font-weight: bold;
+}
+
+/* Sağ İkon Grubu ve Orijinal Hover Glow Efektleri */
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-icon, .delete-icon {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.edit-icon:hover {
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 8px #ff9800);
+}
+
+.delete-icon:hover {
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 8px #0088cc);
+}
+
+.edit-icon:active, .delete-icon:active {
+    transform: scale(0.95);
+}
+
+/* Şık Uyarı Kutusu */
+.custom-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fce4e4;
+    color: #e56b6f;
+    border: 1px solid #f8c8c8;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    animation: fadeInDown 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.custom-alert.hide {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translate(-50%, -20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.counter-text {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #9a8c98;
+    text-align: center;
+}
